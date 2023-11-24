@@ -62,10 +62,11 @@ function game(){
     else if(ans==2)
         p2++
 }  
-for(let i=0;i<3;i++)
-{
-    game()
-}
+// for(let i=0;i<3;i++)
+// {
+//     game()
+// }
+game()
 if(p1>p2)
     console.log("YOU WON TOURNY")
 else if(p2>p1)
