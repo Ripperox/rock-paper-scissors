@@ -15,11 +15,7 @@ function getUserChoice(x){
       else    
           return 3;
   }
-  let xselection = prompt("Please enter your selection:");
-let selection = xselection.toLowerCase();
-console.log(selection)
-var x=getUserChoice(selection);
-var y=getComputerChoice();
+
 function playround(x,y){
     if(y==1)
         console.log("Computer chose rock")
@@ -29,31 +25,53 @@ function playround(x,y){
         console.log("Computer chose scissors")
     if(x==y)
     {
-        console.log("draw")
-
+        return 0;
     }
     if(x==1)
     {
         if(y==2)
-            console.log("you lost")
+            return 2//lost
         else
-            console.log("you won")
+            return 1//won
     }
     if(x==2)
     {
         if(y==3)
-            console.log("you lost")
+            return 2;
         else
-            console.log("you won")
+            return 1;
     }
     if(x==3)
     {
         if(y==2)
-            console.log("you won")
+            return 1;
         else
-            console.log("you lost")
+            return 2;
     }
 }
-playround(x,y)
+var p1,p2=0;
+function game(){
+    let xselection = prompt("Please enter your selection:");
+    let selection = xselection.toLowerCase();
+    console.log(selection)
+    var x=getUserChoice(selection);
+    var y=getComputerChoice();
+    var ans=playround(x,y)
+    if(ans==1)
+        p1++;
+    else if(ans==2)
+        p2++
+}  
+for(let i=0;i<3;i++)
+{
+    game()
+}
+if(p1>p2)
+    console.log("YOU WON TOURNY")
+else if(p2>p1)
+    console.log("YOU LOST TOURNY")
+else    
+    console.log("DRAW")
+
 
 
